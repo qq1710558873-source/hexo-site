@@ -1,0 +1,8 @@
+scripts:
+  - /js/mdui.min.js
+
+stylesheets:
+  - /css/mdui.min.css
+rss:
+  - /
+  - /about
