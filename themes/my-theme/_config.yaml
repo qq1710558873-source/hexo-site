@@ -4,5 +4,5 @@ scripts:
 stylesheets:
   - /css/mdui.min.css
 rss:
-  - /
-  - /about
+  - /hexo-site/
+  - /hexo-site/about
