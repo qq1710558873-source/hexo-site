@@ -1,30 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
-    <meta name="renderer" content="webkit">
-    <meta name="force-rendering" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title><%= config.title %></title>
     <%- partial('partials/import-css.ejs') %>
+    <%- partial('partials/import-svg.ejs') %>
   </head>
-  <body class="mdui-drawer-body-left mdui-theme-layout-dark" style="padding-top: 20px">
-    <div class="mdui-drawer" id="drawer">
-      <ul class="mdui-list">
-        <% theme.rss.forEach(function(item) { %>
-        <a class="mdui-list-item mdui-ripple" href="<%= item %>">
-          <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
-          <div class="mdui-list-item-content"><%= item %></div>
-        </a>
-        <% }) %>
-      </ul>
-    </div>
+  <body class="mdui-drawer-body-left mdui-theme-layout-auto mdui-loaded mdui-theme-accent-light-blue mdui-theme-primary-orange">
+    <!-- 侧边栏 -->
+    <%- partial('partials/sidebar.ejs') %>
 
-    <div class="mdui-container">
-      <%- body %>
-    </div>
+    <!-- 内容区域 -->
+    <div class="mdui-container mdui-typo"><%- body %></div>
 
+    <!-- 引入JS -->
     <%- partial('partials/import-js.ejs') %>
     <script src="//instant.page/5.2.0" type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
   </body>

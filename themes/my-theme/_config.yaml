@@ -1,8 +1,14 @@
+# 侧边菜单
+sidebar:
+    主页: 
+      href: /
+      icon: home
+    关于:
+      href: /about/
+      icon: person
 scripts:
   - /js/mdui.min.js
 
 stylesheets:
   - /css/mdui.min.css
-rss:
-  - /
-  - /about
+  - /css/global.css
