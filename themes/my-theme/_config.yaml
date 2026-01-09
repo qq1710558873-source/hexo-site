@@ -8,7 +8,10 @@ sidebar:
       icon: person
 scripts:
   - /js/mdui.min.js
+  - /js/lenis.min.js
+  - /js/global.js
 
 stylesheets:
   - /css/mdui.min.css
   - /css/global.css
+  - /css/lenis.min.css
