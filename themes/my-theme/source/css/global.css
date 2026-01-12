@@ -8,17 +8,68 @@ html {
 }
 body {
   height: 100%;
+  .zoom-container {
+    position: fixed;
+    top: 0;
+    left: 240px;
+    width: calc(100% - 240px);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+  }
   .mdui-drawer {
     background-color: #303030;
   }
   .mdui-container {
     padding: 100px 0;
+    max-width: 1024px;
+  }
+  .mdui-card-media {
+    height: 200px;
   }
 }
-.card-cover {
+.card-cover,
+.card-cover-thumbnail {
   height: 200px;
   object-fit: cover;
 }
+.card-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
 .border-radius-5 {
   border-radius: 5px;
+}
+
+.medium-zoom-overlay {
+  z-index: 5001;
+}
+.medium-zoom-image--opened {
+  z-index: 5002;
+}
+.post-thumb-img,
+.post-img {
+  max-height: 480px;
+  width: 100%;
+  display: block;
+  transition: opacity 0.5s linear;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  object-fit: cover;
+}
+.post-img {
+  position: absolute;
+  width: calc(100% - 32px);
+}
+.loaded-image {
+  opacity: 0;
+  transition-duration: 0.2s;
+  pointer-events: none;
 }

@@ -9,7 +9,10 @@ sidebar:
 scripts:
   - /js/mdui.min.js
   - /js/lenis.min.js
+  - /js/blurhash.min.js
+  - /js/globalObserver.js
   - /js/global.js
+  - /js/medium-zoom.min.js
 
 stylesheets:
   - /css/mdui.min.css

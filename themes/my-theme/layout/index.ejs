@@ -3,7 +3,10 @@
   <!-- 卡片的媒体内容，可以包含图片、视频等媒体内容，以及标题、副标题 -->
   <div class="mdui-card-media">
     <% if (post.cover) { %>
-    <img src="<%- url_for(post.path + post.cover) %>" alt="<%= post.title %>" class="card-cover" />
+    <% if (post.thumbnail) { %>
+    <img src="<%- post.thumbnail %>" alt="<%= post.title %>" class="card-cover-thumbnail" />
+    <% } %>
+    <img src="<%- url_for(post.path + post.cover) %>" onload="this.style.opacity=1" alt="<%= post.title %>" class="card-cover" />
     <% } %>
   </div>
 
