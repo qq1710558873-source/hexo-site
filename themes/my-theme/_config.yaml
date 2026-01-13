@@ -13,6 +13,7 @@ scripts:
   - /js/globalObserver.js
   - /js/global.js
   - /js/medium-zoom.min.js
+  - /js/progressbar.js
 
 stylesheets:
   - /css/mdui.min.css

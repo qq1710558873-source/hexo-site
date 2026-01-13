@@ -7,7 +7,8 @@ title: eternal_wings_site
 subtitle: test-site
 description: ''
 keywords:
-author: eternal_wings
+author: 悠久之翼
+signature: 悠久之翼
 language: en
 timezone: ''
 
@@ -67,7 +68,7 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
-
+  
 # Category & Tag
 default_category: uncategorized
 category_map:
