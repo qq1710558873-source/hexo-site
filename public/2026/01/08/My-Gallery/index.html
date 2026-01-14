@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/css/mdui.min.css">
 <link rel="stylesheet" href="/css/global.css">
 <link rel="stylesheet" href="/css/lenis.min.css">
+<link rel="stylesheet" href="/css/prism-tomorrow.min.css">
 
  <svg style="display: none">
   <symbol id="home" viewBox="0 -960 960 960">
@@ -53,7 +54,27 @@
     
     <!-- 内容区域 -->
     <div class="mdui-container mdui-typo"><div class="mdui-card mdui-hoverable border-radius-5">
-  <div class="mdui-card-content"><p>Welcome to My Gallery!</p>
+  <div class="mdui-card-content"><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">%</span> page<span class="token punctuation">.</span>posts<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">post</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token operator">%</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"mdui-card mdui-hoverable border-radius-5 mdui-ripple hover-border load-dom"</span> style<span class="token operator">=</span><span class="token string">"margin-bottom: 30px"</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 卡片的媒体内容，可以包含图片、视频等媒体内容，以及标题、副标题 <span class="token operator">--</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"mdui-card-media"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>post<span class="token punctuation">.</span>cover<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token operator">%</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>post<span class="token punctuation">.</span>thumbnail<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token operator">%</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"&lt;%- post.thumbnail %>"</span> alt<span class="token operator">=</span><span class="token string">"&lt;%= post.title %>"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"card-cover-thumbnail"</span> <span class="token operator">/</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token punctuation">&#125;</span> <span class="token operator">%</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"&lt;%- url_for(post.path + post.cover) %>"</span> onload<span class="token operator">=</span><span class="token string">"this.style.opacity=1"</span> alt<span class="token operator">=</span><span class="token string">"&lt;%= post.title %>"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"card-cover"</span> <span class="token operator">/</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token punctuation">&#125;</span> <span class="token operator">%</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+
+  <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 卡片的标题和副标题 <span class="token operator">--</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"mdui-card-primary"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"mdui-card-primary-title"</span><span class="token operator">></span><span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"&lt;%- url_for(post.path) %>"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">%=</span> post<span class="token punctuation">.</span>title <span class="token operator">%</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"mdui-card-primary-subtitle"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">%=</span> <span class="token function">date</span><span class="token punctuation">(</span>post<span class="token punctuation">.</span>date<span class="token punctuation">,</span> <span class="token string">'YYYY-MM-DD'</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </div>
 </div>
 </div>
@@ -68,6 +89,7 @@
 <script src="/js/global.js"></script>
 <script src="/js/medium-zoom.min.js"></script>
 <script src="/js/progressbar.js"></script>
+<script src="/js/components.js"></script>
 
 
 

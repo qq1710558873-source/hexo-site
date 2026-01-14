@@ -16,7 +16,7 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { rootMargin: '0px 0px 600px 0px' } // 提前 600px 触发
+  { rootMargin: '0px 0px -200px 0px' } // 提前 600px 触发
 );
 
 const observeImage = (el, callback) => {

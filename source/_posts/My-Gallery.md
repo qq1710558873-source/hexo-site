@@ -3,4 +3,26 @@ title: My Gallery
 date: 2026-01-08 16:07:57
 tags:
 ---
-Welcome to My Gallery!
+```js
+<% page.posts.forEach(function(post){ %>
+<div class="mdui-card mdui-hoverable border-radius-5 mdui-ripple hover-border load-dom" style="margin-bottom: 30px">
+  <!-- 卡片的媒体内容，可以包含图片、视频等媒体内容，以及标题、副标题 -->
+  <div class="mdui-card-media">
+    <% if (post.cover) { %>
+    <% if (post.thumbnail) { %>
+    <img src="<%- post.thumbnail %>" alt="<%= post.title %>" class="card-cover-thumbnail" />
+    <% } %>
+    <img src="<%- url_for(post.path + post.cover) %>" onload="this.style.opacity=1" alt="<%= post.title %>" class="card-cover" />
+    <% } %>
+  </div>
+
+  <!-- 卡片的标题和副标题 -->
+  <div class="mdui-card-primary">
+    <div class="mdui-card-primary-title"><a href="<%- url_for(post.path) %>"><%= post.title %></a></div>
+    <div class="mdui-card-primary-subtitle"><%= date(post.date, 'YYYY-MM-DD') %></div>
+  </div>
+</div>
+<% }) %>
+
+```
+

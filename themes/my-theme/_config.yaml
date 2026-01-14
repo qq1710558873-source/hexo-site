@@ -14,8 +14,10 @@ scripts:
   - /js/global.js
   - /js/medium-zoom.min.js
   - /js/progressbar.js
+  - /js/components.js
 
 stylesheets:
   - /css/mdui.min.css
   - /css/global.css
   - /css/lenis.min.css
+  - /css/prism-tomorrow.min.css
