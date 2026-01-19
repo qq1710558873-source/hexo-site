@@ -32,7 +32,13 @@ body.mdui-theme-layout-light .mdui-drawer svg {
 }
 body .mdui-container {
   padding: 100px 0;
-  max-width: 1024px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+body .mdui-container .mdui-content {
+  width: 100%;
+  position: relative;
 }
 body .mdui-card-media {
   height: 200px;
@@ -54,6 +60,10 @@ body .mdui-card-media {
 
 .border-radius-5 {
   border-radius: 5px;
+}
+
+.border-radius-12 {
+  border-radius: 12px;
 }
 
 .hover-border {
@@ -99,21 +109,20 @@ body .mdui-card-media {
   position: relative;
 }
 .homepage .info {
-  pointer-events: none;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   width: 300px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(238, 238, 238, 0.1254901961);
+  background-color: rgba(0, 0, 0, 0.3764705882);
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  gap: 5px;
+  gap: 25px;
 }
 .homepage .info .avatar {
   width: 100px;
@@ -173,6 +182,15 @@ body .mdui-card-media {
 }
 .paginator .page-info {
   color: #7c4dff;
+}
+
+.background {
+  transition: opacity 0.1s;
+  opacity: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .lazy-image-container {
@@ -277,4 +295,17 @@ body .mdui-card-media {
   --line-color: rgba(255, 255, 255, 0.1); /* 线条颜色 */
   background-image: linear-gradient(var(--line-color) 1px, transparent 1px), linear-gradient(90deg, var(--line-color) 1px, transparent 1px); /* 垂直线 */
   background-size: var(--grid-size) var(--grid-size);
+}
+
+.fixed-userinfo {
+  position: sticky;
+  top: 20px;
+  left: 20px;
+  height: 300px;
+  min-width: 300px;
+  background-color: rgba(48, 48, 48, 0.3764705882);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

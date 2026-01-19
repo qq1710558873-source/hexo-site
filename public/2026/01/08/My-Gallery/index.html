@@ -67,8 +67,24 @@
 </div>
  -->
     
-    <!-- 内容区域 -->
-    <div class="mdui-container mdui-typo"><div class="mdui-card mdui-hoverable border-radius-5">
+    <div class="mdui-container mdui-typo">
+      <div class="fixed-userinfo border-radius-12">
+    <div class="content">
+        <div class="avatar">
+            <picture>
+                <source
+                    srcset="https://cdn.jsdelivr.net/gh/qq1710558873-source/cdn/image/avatar.webp"
+                    type="image/webp"
+                />
+                <img src="/images/avatar.jpg" alt="" width="200" height="200" />
+            </picture>
+        </div>
+        <div class="author">悠久之翼</div>
+    </div>
+</div>
+
+      <!-- 内容区域 -->
+      <div class="mdui-content"><div class="mdui-card mdui-hoverable border-radius-5">
   <div class="mdui-card-content"><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">%</span> page<span class="token punctuation">.</span>posts<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">post</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token operator">%</span><span class="token operator">></span>
 <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"mdui-card mdui-hoverable border-radius-5 mdui-ripple hover-border load-dom"</span> style<span class="token operator">=</span><span class="token string">"margin-bottom: 30px"</span><span class="token operator">></span>
   <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 卡片的媒体内容，可以包含图片、视频等媒体内容，以及标题、副标题 <span class="token operator">--</span><span class="token operator">></span>
@@ -93,6 +109,7 @@
 </div>
 </div>
 </div>
+    </div>
     <!-- 悬浮按钮 -->
      <div class="fixed-btns">
        <div class="upBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});"></div>

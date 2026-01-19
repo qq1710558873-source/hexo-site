@@ -16,26 +16,31 @@
     <% if (is_home_first_page()) { %>
     <!-- 主页图片 -->
     <div class="homepage">
-      <img class="thumbnail" style="opacity: 0;" onload="this.style.opacity=1;" data-blurhash="LC9QgsD~8^^-?dITRO%3xIM_o#xG" data-width="32" data-height="16">
+      <!-- <img class="thumbnail" style="opacity: 0;" onload="this.style.opacity=1;" data-blurhash="LC9QgsD~8^^-?dITRO%3xIM_o#xG" data-width="32" data-height="16">
       <picture>
         <source srcset="/images/72055179_p0.webp" type="image/webp" />
         <img src="/images/72055179_p0.jpg" class="background" style="opacity: 0;" onload="this.style.opacity=1;" alt="" />
-      </picture>
-      <div class="grid-bg background"></div>
+      </picture> -->
+      <img class="thumbnail" style="opacity: 0;" onload="this.style.opacity=1;" data-blurhash="L59IC+0000.TYRW9rWtoT2Wqxnem" data-width="32" data-height="16">
+      <video src="/images/Eve 自宅雑談_2_prob4.mp4" muted loop autoplay oncanplaythrough="this.style.opacity=1" class="background"></video>
+      <!-- <div class="grid-bg background"></div> -->
       <div class="info">
-        <div class="avatar">
+        <!-- <div class="avatar">
           <picture>
             <source srcset="https://cdn.jsdelivr.net/gh/qq1710558873-source/cdn/image/avatar.webp" type="image/webp" />
             <img src="/images/avatar.jpg" alt="" width="100" height="100" />
           </picture>
-        </div>
-        <div class="author"><%= config.author %></div>
+        </div> -->
+        <div class="author"><%= config.author %>的博客</div>
         <div class="signature"><%= config.signature %></div>
       </div>
     </div>
     <% } %>
-    <!-- 内容区域 -->
-    <div class="mdui-container mdui-typo"><%- body %></div>
+    <div class="mdui-container mdui-typo">
+      <%- partial('partials/fixed-user-info.ejs') %>
+      <!-- 内容区域 -->
+      <div class="mdui-content"><%- body %></div>
+    </div>
     <!-- 悬浮按钮 -->
      <div class="fixed-btns">
        <div class="upBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});"></div>

@@ -6,7 +6,7 @@
   <link href="https://eternalwings.xyz/atom.xml" rel="self"/>
   
   <link href="https://eternalwings.xyz/"/>
-  <updated>2026-01-14T03:17:20.926Z</updated>
+  <updated>2026-01-18T14:49:37.526Z</updated>
   <id>https://eternalwings.xyz/</id>
   
   <author>
@@ -17,103 +17,20 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>blog12</title>
-    <link href="https://eternalwings.xyz/2026/01/14/blog12/"/>
-    <id>https://eternalwings.xyz/2026/01/14/blog12/</id>
-    <published>2026-01-14T03:17:20.000Z</published>
-    <updated>2026-01-14T03:17:20.926Z</updated>
+    <title>Hello World</title>
+    <link href="https://eternalwings.xyz/2026/01/18/hello-world/"/>
+    <id>https://eternalwings.xyz/2026/01/18/hello-world/</id>
+    <published>2026-01-18T14:49:37.526Z</published>
+    <updated>2026-01-18T14:49:37.526Z</updated>
     
     
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>blog11</title>
-    <link href="https://eternalwings.xyz/2026/01/14/blog11/"/>
-    <id>https://eternalwings.xyz/2026/01/14/blog11/</id>
-    <published>2026-01-14T03:16:56.000Z</published>
-    <updated>2026-01-14T03:16:56.615Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>blog10</title>
-    <link href="https://eternalwings.xyz/2026/01/14/blog10/"/>
-    <id>https://eternalwings.xyz/2026/01/14/blog10/</id>
-    <published>2026-01-14T03:16:53.000Z</published>
-    <updated>2026-01-14T03:16:53.174Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>blog9</title>
-    <link href="https://eternalwings.xyz/2026/01/14/blog9/"/>
-    <id>https://eternalwings.xyz/2026/01/14/blog9/</id>
-    <published>2026-01-14T03:16:50.000Z</published>
-    <updated>2026-01-14T03:16:50.382Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>blog8</title>
-    <link href="https://eternalwings.xyz/2026/01/14/blog8/"/>
-    <id>https://eternalwings.xyz/2026/01/14/blog8/</id>
-    <published>2026-01-14T03:16:45.000Z</published>
-    <updated>2026-01-14T03:16:45.338Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>blo7</title>
-    <link href="https://eternalwings.xyz/2026/01/14/blo7/"/>
-    <id>https://eternalwings.xyz/2026/01/14/blo7/</id>
-    <published>2026-01-14T03:16:39.000Z</published>
-    <updated>2026-01-14T03:16:39.898Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>blo6</title>
-    <link href="https://eternalwings.xyz/2026/01/14/blo6/"/>
-    <id>https://eternalwings.xyz/2026/01/14/blo6/</id>
-    <published>2026-01-14T03:16:37.000Z</published>
-    <updated>2026-01-14T03:16:37.064Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>blog5</title>
-    <link href="https://eternalwings.xyz/2026/01/14/blog5/"/>
-    <id>https://eternalwings.xyz/2026/01/14/blog5/</id>
-    <published>2026-01-14T03:16:25.000Z</published>
-    <updated>2026-01-14T03:16:25.721Z</updated>
-    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
     
     
     
@@ -125,7 +42,7 @@
     <link href="https://eternalwings.xyz/2026/01/12/my-test/"/>
     <id>https://eternalwings.xyz/2026/01/12/my-test/</id>
     <published>2026-01-12T01:42:11.000Z</published>
-    <updated>2026-01-14T08:54:23.780Z</updated>
+    <updated>2026-01-18T14:49:37.527Z</updated>
     
     
       
@@ -148,7 +65,7 @@
     <link href="https://eternalwings.xyz/2026/01/09/my-world/"/>
     <id>https://eternalwings.xyz/2026/01/09/my-world/</id>
     <published>2026-01-09T06:43:57.000Z</published>
-    <updated>2026-01-14T09:39:04.333Z</updated>
+    <updated>2026-01-18T14:49:37.612Z</updated>
     
     
       
@@ -171,7 +88,7 @@
     <link href="https://eternalwings.xyz/2026/01/08/My-Gallery/"/>
     <id>https://eternalwings.xyz/2026/01/08/My-Gallery/</id>
     <published>2026-01-08T08:07:57.000Z</published>
-    <updated>2026-01-14T03:11:08.493Z</updated>
+    <updated>2026-01-18T14:49:37.523Z</updated>
     
     
       
@@ -179,27 +96,6 @@
         
         
     <summary type="html">&lt;pre class=&quot;line-numbers language-javascript&quot; data-language=&quot;javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://eternalwings.xyz/2026/01/08/hello-world/"/>
-    <id>https://eternalwings.xyz/2026/01/08/hello-world/</id>
-    <published>2026-01-08T02:25:39.040Z</published>
-    <updated>2026-01-09T07:43:07.445Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
         
       
     

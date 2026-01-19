@@ -1,14 +1,42 @@
 // Initialize Lenis
 const lenis = new Lenis({
-  autoRaf: true,
+  autoRaf: true
 });
+const img = document.querySelector('.homepage .background');
 // 等待页面加载完成
 document.addEventListener('DOMContentLoaded', function () {
   mediumZoom('[data-zoomable]', {
     margin: 16,
     scrollOffset: 100,
-    background: 'rgba(0,0,0,.85)',
+    background: 'rgba(0,0,0,.85)'
   });
+  let autoScrollSpeed = 3; // 每次重绘滚动的像素
+  let scrolling = true;
+
+  function scrollToWithEasing(targetY, duration) {
+    const startTime = performance.now();
+
+    // 这是一个 easeInOutCubic 缓动函数
+    function easing(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function step(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1); // 0 到 1
+
+      window.scrollTo(0, targetY * easing(progress));
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+   img && requestAnimationFrame(step);
+  }
+
+  // 用 2000 毫秒滚到 1000px 的位置
+  scrollToWithEasing(600, 2000);
 });
 /**
  * 图片懒加载
@@ -46,8 +74,8 @@ document.querySelectorAll('.load-img-container').forEach((el) => {
  * 解码占位图
  */
 document.querySelectorAll('[data-blurhash]').forEach((el) => {
-  const width = el.dataset.width;
-  const height = el.dataset.height;
+  const width = el.dataset.width || 8;
+  const height = el.dataset.height || 8;
   blurhash.decodePromise(el.dataset.blurhash, width, height).then((imageData) => {
     const canvas = document.createElement('canvas');
     canvas.width = width;
@@ -62,8 +90,7 @@ document.querySelectorAll('[data-blurhash]').forEach((el) => {
 });
 
 // const container = document.querySelector('.homepage');
-const img = document.querySelector('.homepage .background');
-
+const info = document.querySelector('.homepage .info');
 // let ticking = false;
 
 // window.addEventListener('mousemove', (e) => {
@@ -98,7 +125,8 @@ window.addEventListener('scroll', () => {
   if (!ticking2 && img) {
     window.requestAnimationFrame(() => {
       const scrollY = window.scrollY;
-      img.style.transform = `translate3d(0px, ${scrollY * 0.5}px, 0px)`;
+      img.style.transform = `translate3d(0px, ${scrollY * 0.75}px, 0px)`;
+      info.style.transform = `translate(-50%, ${scrollY * 0.45}px)`;
       ticking2 = false;
     });
     ticking2 = true;
