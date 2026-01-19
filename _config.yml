@@ -9,7 +9,7 @@ description: ''
 keywords:
 author: 悠久之翼
 signature: 悠久之翼
-language: en
+language: zh-CN
 timezone: ''
 
 # URL
@@ -68,7 +68,7 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
-  
+
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -107,3 +107,16 @@ theme: my-theme
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# RSS
+feed:
+  enable: true
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+  autodiscovery: true

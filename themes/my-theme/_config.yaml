@@ -3,8 +3,11 @@ sidebar:
     主页: 
       href: /
       icon: home
+    图库:
+      href: /gallery
+      icon: image
     关于:
-      href: /about/
+      href: /about
       icon: person
 scripts:
   - /js/mdui.min.js
