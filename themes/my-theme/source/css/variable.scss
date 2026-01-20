@@ -1,0 +1,9 @@
+:root {
+  color-scheme: light dark;
+
+  /* 定义语义化调色板 */
+  --text-1: light-dark(#222222, #ffffffbf);
+  --text-2: light-dark(#222222, #c1c1c1);
+  --bg-1: light-dark(#ffffff, #303030);
+  --bg-2: light-dark(#ffffff8c, #0000008c);
+}

@@ -1,10 +1,11 @@
+@use 'variable.scss';
 * {
   padding: 0;
   margin: 0;
 }
 html {
   height: 100%;
-  width: 100%;
+  scrollbar-gutter: stable;
 }
 body {
   height: 100%;
@@ -22,7 +23,7 @@ body {
   }
   &.mdui-theme-layout-dark {
     .mdui-drawer {
-      background-color: #303030;
+      background-color: var(--bg-1);
     }
   }
   &.mdui-theme-layout-light {
@@ -63,7 +64,7 @@ body {
   border-radius: 5px;
 }
 .border-radius-12 {
-border-radius: 12px;
+  border-radius: 12px;
 }
 .hover-border {
   transition-duration: 0.2s;
@@ -134,7 +135,7 @@ border-radius: 12px;
     }
     .signature {
       font-size: 14px;
-      color: #c1c1c1;
+      color: var(--text-2);
     }
   }
   picture {
@@ -287,10 +288,10 @@ border-radius: 12px;
   --grid-size: 40px; /* 格子大小 */
   --line-color: rgba(255, 255, 255, 0.1); /* 线条颜色 */
 
-  background-image: 
-    linear-gradient(var(--line-color) 1px, transparent 1px), /* 水平线 */
-    linear-gradient(90deg, var(--line-color) 1px, transparent 1px); /* 垂直线 */
-  
+  background-image:
+    linear-gradient(var(--line-color) 1px, transparent 1px),
+    /* 水平线 */ linear-gradient(90deg, var(--line-color) 1px, transparent 1px); /* 垂直线 */
+
   background-size: var(--grid-size) var(--grid-size);
 }
 
@@ -319,6 +320,19 @@ border-radius: 12px;
   align-items: center;
   z-index: 999;
   height: 60px;
+  padding: 0 20px;
+  border-radius: 0 0 10px 10px;
+  transition: background-color 0.3s ease-in-out;
+  color: var(--text-1);
+  &.navbar-fixed {
+    background-color: var(--bg-2);
+  }
+  .logo a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--text-1);
+  }
   .navbar .mdui-list {
     display: flex;
     flex-direction: row;

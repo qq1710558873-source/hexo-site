@@ -89,38 +89,12 @@ document.querySelectorAll('[data-blurhash]').forEach((el) => {
   });
 });
 
-// const container = document.querySelector('.homepage');
 const info = document.querySelector('.homepage .info');
-// let ticking = false;
-
-// window.addEventListener('mousemove', (e) => {
-//   if (!ticking) {
-//     if (e.target != container) {
-//       img.style.transform = `translate(0px, 0px) scale(1)`;
-//       return;
-//     }
-//     // 使用 requestAnimationFrame 优化性能
-//     window.requestAnimationFrame(() => {
-//       const rect = container.getBoundingClientRect();
-//       const centerX = rect.left + rect.width / 2;
-//       const centerY = rect.top + rect.height / 2;
-//       const moveX = e.clientX - centerX;
-//       const moveY = e.clientY - centerY;
-
-//       const sensitivity = 50;
-//       const x = moveX / sensitivity;
-//       const y = moveY / sensitivity;
-//       img.style.transform = `translate(${x}px, ${y}px) scale(1.02)`; // 稍微放大防止露底
-
-//       ticking = false;
-//     });
-//     ticking = true;
-//   }
-// });
 /**
  * 滚动事件监听
  */
 let ticking2 = false;
+const navbar = document.querySelector('.navbar-wrapper');
 window.addEventListener('scroll', () => {
   if (!ticking2 && img) {
     window.requestAnimationFrame(() => {
@@ -128,6 +102,12 @@ window.addEventListener('scroll', () => {
       img.style.transform = `translate3d(0px, ${scrollY * 0.75}px, 0px)`;
       info.style.transform = `translate(-50%, ${scrollY * 0.45}px)`;
       ticking2 = false;
+      // 滚动到 600px 时添加类名
+      if (scrollY >= 400) {
+        navbar.classList.add('navbar-fixed');
+      } else {
+        navbar.classList.remove('navbar-fixed');
+      }
     });
     ticking2 = true;
   }
