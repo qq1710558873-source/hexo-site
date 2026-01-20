@@ -1,0 +1,23 @@
+<div class="navbar-wrapper">
+  <div class="logo">
+    <a href="<%- url_for('/') %>">
+      <img src="<%- url_for(theme.logo) %>" alt="logo" />
+      <span><%- theme.name %></span>
+    </a>
+  </div>
+  <div class="navbar">
+    <ul class="mdui-list">
+    <% Object.keys(theme.sidebar).forEach(function(key) { %>
+    <a href="<%= theme.sidebar[key].href %>">
+      <svg width="20" height="20" fill="#e3e3e3">
+        <use href="#<%= theme.sidebar[key].icon %>"></use>
+      </svg>
+      <div><%= key %></div>
+    </a>
+    <% }) %>
+  </ul>
+  </div>
+  <div class="operation">
+    <div>切换</div>
+  </div>
+</div>

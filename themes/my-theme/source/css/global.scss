@@ -306,3 +306,35 @@ border-radius: 12px;
   justify-content: center;
   align-items: center;
 }
+
+.navbar-wrapper {
+  max-width: 1200px;
+  width: 92%;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  height: 60px;
+  .navbar .mdui-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    a {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .fixed-userinfo {
+    display: none;
+  }
+}
