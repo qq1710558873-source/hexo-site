@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: eternal_wings_site
+title: 悠久之翼の博客
 subtitle: test-site
 description: ''
 keywords:
@@ -120,3 +120,8 @@ feed:
   content_limit_delim: ' '
   order_by: -date
   autodiscovery: true
+
+# sitemap
+sitemap:
+  path: sitemap.xml
+  rel: false

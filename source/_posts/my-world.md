@@ -5,4 +5,3 @@ tags:
 cover: cover.avif
 coverBlurhash: LlJhOdEft6Na}aNaoLayADoeaeoe3218 # 封面缩略图的hash
 ---
-{% LazyImage cover.png %}
