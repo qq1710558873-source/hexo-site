@@ -1,0 +1,37 @@
+<div class="categories-page">
+  <div class="page-header">
+    <h1 class="page-title">
+      <svg viewBox="0 0 24 24" width="28" height="28">
+        <path fill="currentColor" d="M12 2l-5.5 9h11z"/>
+        <path fill="currentColor" d="M17.5 9l-5.5 9 5.5-9z"/>
+        <path fill="currentColor" d="M6.5 9h11l-5.5-9-5.5 9z" opacity="0.3"/>
+        <path fill="currentColor" d="M12 11l-5.5 9h11l-5.5-9z"/>
+      </svg>
+      分类
+    </h1>
+    <p class="page-desc">共 <%= site.categories.length %> 个分类，<%= site.posts.length %> 篇文章</p>
+  </div>
+
+  <div class="categories-cloud">
+    <% site.categories.sort('name').forEach(function(category) { %>
+      <a href="<%- url_for(category.path) %>" class="category-item" data-count="<%= category.posts.length %>">
+        <span class="category-name">
+          <svg viewBox="0 0 24 24" width="16" height="16">
+            <path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+          </svg>
+          <%= category.name %>
+        </span>
+        <span class="category-count"><%= category.posts.length %></span>
+      </a>
+    <% }) %>
+  </div>
+
+  <% if (site.categories.length === 0) { %>
+    <div class="empty-state">
+      <svg viewBox="0 0 24 24" width="64" height="64">
+        <path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+      </svg>
+      <p>暂无分类</p>
+    </div>
+  <% } %>
+</div>

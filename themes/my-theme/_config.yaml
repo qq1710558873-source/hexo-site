@@ -3,6 +3,9 @@ sidebar:
     主页: 
       href: /
       icon: home
+    分类:
+      href: /categories
+      icon: folder
     图库:
       href: /gallery
       icon: image

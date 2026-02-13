@@ -2,6 +2,8 @@
 title: my-test
 date: 2026-01-12 09:42:11
 tags:
+categories:
+  - 图集
 cover: 72055179_p0.jpg
 coverBlurhash: LD9@M84,Mc.T?dD$sVbuxHNExvV?3218 # 封面缩略图的hash
 ---

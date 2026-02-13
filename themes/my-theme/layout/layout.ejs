@@ -17,13 +17,22 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "<%= config.title %>",
-        "url": "https://www.eternalwings.xyz"
+        "url": "https://eternalwings.xyz"
       }
       </script>
     <%- partial('partials/import-css.ejs') %>
     <%- partial('partials/import-svg.ejs') %>
   </head>
-  <body class="mdui-theme-layout-light mdui-loaded mdui-theme-primary-deep-purple mdui-theme-accent-deep-purple">
+  <body class="mdui-loaded mdui-theme-primary-deep-purple mdui-theme-accent-deep-purple">
+    <script>
+      // 初始化主题，防止闪烁
+      (function() {
+        const saved = localStorage.getItem('theme-preference');
+        const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.style.colorScheme = theme;
+        document.body.classList.add('mdui-theme-layout-' + theme);
+      })();
+    </script>
     <!-- 侧边栏 -->
     <%- partial('partials/navbar.ejs') %>
     <% if (is_home_first_page()) { %>
@@ -44,7 +53,9 @@
     </div>
     <!-- 悬浮按钮 -->
      <div class="fixed-btns">
-       <div class="upBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});"></div>
+       <div class="upBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+        <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"><path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"/></svg>
+       </div>
      </div>
     <!-- 引入JS -->
     <%- partial('partials/import-js.ejs') %>

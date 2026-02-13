@@ -1,0 +1,38 @@
+<div class="category-page">
+  <div class="page-header">
+    <h1 class="page-title">
+      <svg viewBox="0 0 24 24" width="28" height="28">
+        <path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+      </svg>
+      <%= page.category %>
+    </h1>
+    <p class="page-desc">该分类下共有 <%= page.posts.length %> 篇文章</p>
+  </div>
+
+  <% page.posts.forEach(function(post){ %>
+  <div class="mdui-card mdui-hoverable border-radius-5 mdui-ripple hover-border load-dom" style="margin-bottom: 30px">
+    <!-- 卡片的媒体内容 -->
+    <div class="mdui-card-media">
+      <% if (post.cover) { %>
+      <lazy-image webp-src="<%- url_for(post.path + post.cover) %>" jpg-src="<%- url_for(post.path + post.cover) %>" blurhash="<%- post.coverBlurhash %>" />
+      <% } %>
+    </div>
+
+    <!-- 卡片的标题和副标题 -->
+    <div class="mdui-card-primary">
+      <div class="mdui-card-primary-title"><a href="<%- url_for(post.path) %>"><%= post.title %></a></div>
+      <div class="mdui-card-primary-subtitle"><%= date(post.date, 'YYYY-MM-DD HH:mm:ss') %></div>
+    </div>
+  </div>
+  <% }) %>
+
+  <div class="paginator">
+    <% if (page.prev) { %>
+      <a href="<%- url_for(page.prev_link) %>">上一页</a>
+    <% } %>
+    <span class="page-info"><%= page.current %> / <%= page.total %></span>
+    <% if (page.next) { %>
+      <a href="<%- url_for(page.next_link) %>">下一页</a>
+    <% } %>
+  </div>
+</div>
