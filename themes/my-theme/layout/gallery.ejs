@@ -15,10 +15,10 @@
     <div class="gallery-container">
       <% page.gallery.forEach(function(item) { %>
         <div class="gallery-item mdui-card mdui-hoverable">
-          <img 
-            src="<%= item.src %>" 
+          <img
+            src="<%= item.src %>"
             alt="<%= item.title || 'Gallery Image' %>"
-            data-zoomable
+            data-zoomable-gallery
             <% if (item.blurhash) { %>data-blurhash="<%= item.blurhash %>"<% } %>
           >
           <% if (item.title || item.desc) { %>
@@ -50,7 +50,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     // 重新初始化针对gallery图片的 Medium Zoom
     if (typeof mediumZoom !== 'undefined') {
-      mediumZoom('.gallery-item img[data-zoomable]', {
+      mediumZoom('[data-zoomable-gallery]', {
         margin: 24,
         background: 'rgba(0,0,0,0.85)',
         scrollOffset: 40,
