@@ -1,9 +1,7 @@
 .gallery-container {
-  display: grid;
-  gap: var(--gallery-gap);
-  grid-template-columns: repeat(var(--gallery-columns-desktop), 1fr);
+  column-count: var(--gallery-columns-desktop);
+  column-gap: var(--gallery-gap);
   padding: 16px 0;
-  align-items: start;
 }
 
 .gallery-item {
@@ -13,6 +11,8 @@
   background: var(--bg-2);
   transition: var(--gallery-transition);
   cursor: pointer;
+  break-inside: avoid;
+  margin-bottom: var(--gallery-gap);
 }
 
 .gallery-item img {
@@ -75,12 +75,12 @@
 /* 响应式断点 */
 @media (max-width: 989px) {
   .gallery-container {
-    grid-template-columns: repeat(var(--gallery-columns-tablet), 1fr);
+    column-count: var(--gallery-columns-tablet);
   }
 }
 
 @media (max-width: 600px) {
   .gallery-container {
-    grid-template-columns: repeat(var(--gallery-columns-mobile), 1fr);
+    column-count: var(--gallery-columns-mobile);
   }
 }
