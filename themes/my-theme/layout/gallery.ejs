@@ -16,7 +16,8 @@
       <% page.gallery.forEach(function(item) { %>
         <div class="gallery-item mdui-card mdui-hoverable">
           <img
-            src="<%= item.src %>"
+            class="gallery-lazy"
+            data-src="<%= item.src %>"
             alt="<%= item.title || 'Gallery Image' %>"
             data-zoomable-gallery
             <% if (item.blurhash) { %>data-blurhash="<%= item.blurhash %>"<% } %>
@@ -45,10 +46,45 @@
   <% } %>
 </div>
 
-<!-- Medium Zoom 初始化 -->
+<!-- 图片懒加载 + Medium Zoom 初始化 -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // 重新初始化针对gallery图片的 Medium Zoom
+    // 懒加载观察器
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const src = img.getAttribute('data-src');
+
+          if (src) {
+            // 创建临时图片预加载
+            const tempImg = new Image();
+            tempImg.onload = function() {
+              img.src = src;
+              img.classList.add('loaded');
+            };
+            tempImg.onerror = function() {
+              // 加载失败显示占位图
+              img.classList.add('error');
+            };
+            tempImg.src = src;
+          }
+
+          // 停止观察已加载的图片
+          observer.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '50px 0px', // 提前 50px 开始加载
+      threshold: 0.01
+    });
+
+    // 观察所有懒加载图片
+    document.querySelectorAll('.gallery-lazy').forEach(img => {
+      imageObserver.observe(img);
+    });
+
+    // Medium Zoom 初始化
     if (typeof mediumZoom !== 'undefined') {
       mediumZoom('[data-zoomable-gallery]', {
         margin: 24,
