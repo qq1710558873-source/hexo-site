@@ -1,0 +1,60 @@
+<div class="gallery-page">
+  <!-- 页面标题 -->
+  <h1 class="gallery-title-main">
+    <%= page.title %>
+  </h1>
+  
+  <% if (page.subtitle) { %>
+    <p class="gallery-subtitle">
+      <%= page.subtitle %>
+    </p>
+  <% } %>
+  
+  <% if (page.gallery && page.gallery.length > 0) { %>
+    <!-- 图片网格 -->
+    <div class="gallery-container">
+      <% page.gallery.forEach(function(item) { %>
+        <div class="gallery-item mdui-card mdui-hoverable">
+          <img 
+            src="<%= item.src %>" 
+            alt="<%= item.title || 'Gallery Image' %>"
+            data-zoomable
+            <% if (item.blurhash) { %>data-blurhash="<%= item.blurhash %>"<% } %>
+          >
+          <% if (item.title || item.desc) { %>
+            <div class="gallery-overlay">
+              <% if (item.title) { %>
+                <h3 class="gallery-title"><%= item.title %></h3>
+              <% } %>
+              <% if (item.desc) { %>
+                <p class="gallery-desc"><%= item.desc %></p>
+              <% } %>
+            </div>
+          <% } %>
+        </div>
+      <% }); %>
+    </div>
+  <% } else { %>
+    <!-- 空状态 -->
+    <div class="gallery-empty">
+      <svg viewBox="0 0 24 24" style="width: 64px; height: 64px; fill: var(--text-2); margin-bottom: 16px;">
+        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+      </svg>
+      <p>暂无图片，请在 front-matter 中添加 gallery 配置</p>
+    </div>
+  <% } %>
+</div>
+
+<!-- Medium Zoom 初始化 -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 重新初始化针对gallery图片的 Medium Zoom
+    if (typeof mediumZoom !== 'undefined') {
+      mediumZoom('.gallery-item img[data-zoomable]', {
+        margin: 24,
+        background: 'rgba(0,0,0,0.85)',
+        scrollOffset: 40,
+      });
+    }
+  });
+</script>

@@ -1,0 +1,85 @@
+.gallery-container {
+  display: grid;
+  gap: var(--gallery-gap);
+  grid-template-columns: repeat(var(--gallery-columns-desktop), 1fr);
+  padding: 16px 0;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: var(--gallery-card-radius);
+  overflow: hidden;
+  background: var(--bg-2);
+  transition: var(--gallery-transition);
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.gallery-item:hover {
+  transform: scale(var(--gallery-hover-scale));
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(transparent, var(--gallery-overlay-bg));
+  opacity: 0;
+  transition: var(--gallery-transition);
+}
+
+.gallery-overlay .gallery-title {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 4px;
+}
+
+.gallery-overlay .gallery-desc {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  margin: 0;
+}
+
+.gallery-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-2);
+}
+
+.gallery-title-main {
+  text-align: center;
+  margin-bottom: 24px;
+  color: var(--text-1);
+}
+
+.gallery-subtitle {
+  text-align: center;
+  color: var(--text-2);
+  margin-bottom: 32px;
+}
+
+/* 响应式断点 */
+@media (max-width: 989px) {
+  .gallery-container {
+    grid-template-columns: repeat(var(--gallery-columns-tablet), 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-container {
+    grid-template-columns: repeat(var(--gallery-columns-mobile), 1fr);
+  }
+}
