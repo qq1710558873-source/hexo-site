@@ -1,1 +1,141 @@
-About Page
+<div class="about-page">
+  <!-- ============================================
+       Hero Section
+       ============================================ -->
+  <%
+    var heroData = page.hero || {};
+    var heroName = heroData.name || config.author || "Anonymous";
+    var heroBackground = heroData.background || "/images/Eve 自宅雑談_2_prob4.webp";
+    var heroAvatar = heroData.avatar || "/images/avatar.webp";
+    var heroTagline = heroData.tagline || "";
+    var heroSocial = heroData.social || {};
+  %>
+  <section class="about-hero">
+    <div class="hero-background" style="background-image: url('<%= heroBackground %>')"></div>
+    <div class="hero-content">
+      <img class="hero-avatar" src="<%= heroAvatar %>" alt="<%= heroName %>">
+      <h1 class="hero-name"><%= heroName %></h1>
+      <% if (heroTagline) { %>
+        <p class="hero-tagline"><%= heroTagline %></p>
+      <% } %>
+      <% if (heroSocial.github || heroSocial.twitter || heroSocial.email) { %>
+        <div class="hero-social">
+          <% if (heroSocial.github) { %>
+            <a href="https://github.com/<%= heroSocial.github %>" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          <% } %>
+          <% if (heroSocial.twitter) { %>
+            <a href="https://twitter.com/<%= heroSocial.twitter %>" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          <% } %>
+          <% if (heroSocial.email) { %>
+            <a href="mailto:<%= heroSocial.email %>" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+          <% } %>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- ============================================
+       Bio Section
+       ============================================ -->
+  <% if (page.content && page.content.trim()) { %>
+    <section class="about-bio mdui-card mdui-hoverable">
+      <div class="mdui-card-content">
+        <%- page.content %>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ============================================
+       Timeline Section
+       ============================================ -->
+  <% if (page.timeline && page.timeline.length > 0) { %>
+    <section class="about-timeline">
+      <h2 class="timeline-title">经历</h2>
+      <div class="timeline-container">
+        <% page.timeline.forEach(function(item) { %>
+          <div class="timeline-item">
+            <span class="timeline-year"><%= item.year %></span>
+            <div class="timeline-content">
+              <h3 class="timeline-title"><%= item.title %></h3>
+              <% if (item.company) { %>
+                <p class="timeline-company"><%= item.company %></p>
+              <% } %>
+              <% if (item.description) { %>
+                <p class="timeline-desc"><%= item.description %></p>
+              <% } %>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ============================================
+       Skills Section
+       ============================================ -->
+  <% if (page.skills && page.skills.length > 0) { %>
+    <section class="about-skills">
+      <h2 class="skills-title">技能</h2>
+      <div class="skills-grid">
+        <% page.skills.forEach(function(item) { %>
+          <div class="skill-card">
+            <div class="skill-name">
+              <%= item.name %>
+              <span class="skill-percent"><%= item.level %>%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: <%= item.level %>"></div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ============================================
+       Stats Section
+       ============================================ -->
+  <%
+    var statsData = page.stats || [];
+    // 如果没有配置 stats，使用站点数据作为 fallback
+    if (statsData.length === 0) {
+      statsData = [
+        { label: '文章', value: site.posts ? site.posts.length : 0, icon: 'article' },
+        { label: '分类', value: site.categories ? site.categories.length : 0, icon: 'folder' },
+        { label: '标签', value: site.tags ? site.tags.length : 0, icon: 'schedule' },
+        { label: '运行', value: '∞', icon: 'work' }
+      ];
+    }
+  %>
+  <% if (statsData.length > 0) { %>
+    <section class="about-stats">
+      <div class="stats-grid">
+        <% statsData.forEach(function(item) { %>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <% if (item.icon === 'work') { %>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+              <% } else if (item.icon === 'article') { %>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+              <% } else if (item.icon === 'folder') { %>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>
+              <% } else if (item.icon === 'schedule') { %>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <% } else { %>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <% } %>
+            </div>
+            <div class="stat-value"><%= item.value %></div>
+            <div class="stat-label"><%= item.label %></div>
+          </div>
+        <% }); %>
+      </div>
+    </section>
+  <% } %>
+</div>
