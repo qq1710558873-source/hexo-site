@@ -3,6 +3,7 @@
   gap: var(--gallery-gap);
   grid-template-columns: repeat(var(--gallery-columns-desktop), 1fr);
   padding: 16px 0;
+  align-items: start;
 }
 
 .gallery-item {
