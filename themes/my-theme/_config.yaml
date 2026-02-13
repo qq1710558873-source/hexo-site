@@ -25,5 +25,7 @@ scripts:
 stylesheets:
   - /css/mdui.min.css
   - /css/global.css
+  - /css/gallery.css
   - /css/lenis.min.css
   - /css/prism-tomorrow.min.css
+  - /css/about.css
